@@ -16,7 +16,8 @@ export default function Home() {
 
   return (
     <Provider store={store}>
-      <main className='w-screen h-screen bg-gray-900'>
+      <main className='flex w-screen h-screen'>
+        <div className='grow-0 h-full w-[240px] bg-zinc-800 border-r border-zinc-700'></div>
         <TreeContainer />
       </main>
     </Provider>

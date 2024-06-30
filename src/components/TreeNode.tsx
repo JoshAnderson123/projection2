@@ -51,7 +51,7 @@ export default function TreeNode({ sid, opened, row, isLeaf, type }: Props) {
     >
       {layer !== 0 && (
         <div
-          className='absolute h-px bg-gray-400'
+          className='absolute h-px bg-zinc-600'
           style={{
             left: `${padLeft - LAYER_SPACING / 2 - 1}px`,
             width: `${LAYER_SPACING / 2}px`,

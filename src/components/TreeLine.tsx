@@ -56,7 +56,7 @@ function useUpdateDimensions({ sid, row }: Props) {
   return [dragRef, lineRef];
 }
 
-export default function dragLine({ sid, row }: Props) {
+export default function TreeLine({ sid, row }: Props) {
   const [dragRef, lineRef] = useUpdateDimensions({ sid, row });
 
   return (
@@ -68,7 +68,7 @@ export default function dragLine({ sid, row }: Props) {
       {row.me !== row.lastDescendant && (
         <div
           ref={lineRef}
-          className='absolute w-px h-full bg-gray-400 pointer-events-none'
+          className='absolute w-px h-full bg-zinc-600 pointer-events-none'
         ></div>
       )}
     </div>

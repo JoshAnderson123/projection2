@@ -13,7 +13,7 @@ export default function TreeContainer() {
   const visibleNodes = Array.from(sh.positionModel!.values());
 
   return (
-    <div className='bg-gray-800 p-8'>
+    <div className='bg-zinc-900 p-12 grow'>
       <div
         className='relative flex flex-col text-gray-300 text-sm'
         id={TREE_CONTAINER_ID}
