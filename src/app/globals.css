@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -30,4 +30,16 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+} */
+
+/* .drag-line:hover div {
+  width: 3px;
+  background-color: #00b2ff;
+} */
+
+.input-reset {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  width: 100%;
 }
