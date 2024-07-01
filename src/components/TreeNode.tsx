@@ -75,7 +75,7 @@ export default function TreeNode({ sid, opened, row, isLeaf, type }: Props) {
       <input
         type='text'
         value={contentModel[cid].title}
-        className='input-reset'
+        className='input-reset node-input'
         onChange={(e) => dispatch(updateText({ cid, text: e.target.value }))}
       />
       {/* <div className='flex-grow'>{contentModel[cid].title}</div> */}

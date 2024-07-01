@@ -1,3 +1,4 @@
+import { SID_DELIMITER } from '@/utils/constants';
 import { dataContentModel, rootId } from '@/utils/dataContentModel';
 import { genPositionModel } from '@/utils/dataPositionModel';
 import { genStructureModel } from '@/utils/dataStructureModel';
@@ -13,12 +14,12 @@ import {
   isChild,
   moveElem,
   removeElem,
-  swapElem,
   updateStructureModel,
 } from '@/utils/general';
 import { CID, Caret, ContentModel, SID, StructureModel } from '@/utils/types';
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import { sh } from './shadowStore';
 
 type RootState = {
   contentModel: ContentModel;
@@ -58,6 +59,10 @@ export const counterSlice = createSlice({
     }),
     createNode: rA<{ sid: SID; pos: number }>((s, { sid, pos }) => {
       const { newNode } = genNewNode();
+      const parentCid = SIDToCID(sid);
+      const parentType = s.contentModel[parentCid].type;
+      newNode.type = parentType;
+      sh.inputFocusSid = sid + SID_DELIMITER + newNode.cid;
       insertNodeIntoContentModel(s, newNode, sid, pos);
     }),
     moveNode: rA<{ sidFrom: SID; sidParentTo: SID; posTo: number }>(

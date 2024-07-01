@@ -7,10 +7,11 @@ import {
   SID_DELIMITER,
   TREE_CONTAINER_ID,
 } from './constants';
-import { CID, Caret, ContentNode, SID, StructureNode } from './types';
+import { CID, Caret, ContentNode, Row, SID, StructureNode } from './types';
 import { RootState, store } from '@/state/store';
 import { hideCaret, showCaret } from '@/state/rootSlice';
 import { genStructureModel } from './dataStructureModel';
+import { genPositionElems } from './dataPositionModel';
 
 export function CIDsToSID(cids: CID[]): SID {
   return cids.join(SID_DELIMITER);
@@ -248,4 +249,11 @@ export function insertNodeIntoContentModel(
   const children = s.contentModel[parentCID].children;
   s.contentModel[parentCID].children = insertElem(children, node.cid, pos);
   updateStructureModel(s);
+}
+
+export function getPositionElem(row: Row) {
+  if (!sh.positionElemsSet) {
+    genPositionElems();
+  }
+  return sh.positionElems.get(row);
 }

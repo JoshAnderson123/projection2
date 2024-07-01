@@ -118,6 +118,14 @@ function handleKeyDown(e: KeyboardEvent) {
     return;
   }
 
+  if (e.key === 'Enter') {
+    const activeElem = document.activeElement;
+    if (activeElem != null && activeElem.classList.contains('node-input')) {
+      const input = activeElem as HTMLInputElement;
+      input.blur();
+    }
+  }
+
   // if (e.key === 'ArrowLeft') {
   //   store.dispatch(closeAllNodes());
   // } else if (e.key === 'ArrowRight') {

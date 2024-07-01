@@ -7,7 +7,7 @@ import {
   TREE_LINE_Y_OFFSET_MIN,
 } from '@/utils/constants';
 import { genPositionElems } from '@/utils/dataPositionModel';
-import { SIDToLayers, layerToPadLeft } from '@/utils/general';
+import { SIDToLayers, getPositionElem, layerToPadLeft } from '@/utils/general';
 import { RowData, SID } from '@/utils/types';
 import { useLayoutEffect, useRef } from 'react';
 
@@ -26,13 +26,9 @@ function useUpdateDimensions({ sid, row }: Props) {
       return;
     }
 
-    if (!sh.positionElemsSet) {
-      genPositionElems();
-    }
-
-    const meElem = sh.positionElems.get(row.me)!;
-    const lastChildElem = sh.positionElems.get(row.lastChild)!;
-    const lastDescendantElem = sh.positionElems.get(row.lastDescendant)!;
+    const meElem = getPositionElem(row.me)!;
+    const lastChildElem = getPositionElem(row.lastChild)!;
+    const lastDescendantElem = getPositionElem(row.lastDescendant)!;
 
     const yMe = meElem.offsetTop + meElem.offsetHeight - TREE_LINE_Y_OFFSET_MIN;
     const yLastChild = lastChildElem.offsetTop + NODE_HEIGHT / 2;

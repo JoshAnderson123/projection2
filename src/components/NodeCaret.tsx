@@ -5,43 +5,6 @@ import { useLayoutEffect, useRef } from 'react';
 
 const height = 2;
 const width = 2;
-const CARET_SIZE = 12;
-
-// function useUpdateDimensions({ sid, row }: Props) {
-//   const dragRef = useRef<HTMLDivElement>(null);
-//   const lineRef = useRef<HTMLDivElement>(null);
-//   const layer = SIDToLayers(sid);
-
-//   useLayoutEffect(() => {
-//     if (dragRef.current == null || lineRef.current == null) {
-//       return;
-//     }
-
-//     if (!sh.positionElemsSet) {
-//       genPositionElems();
-//     }
-
-//     const meElem = sh.positionElems.get(row.me)!;
-//     const lastChildElem = sh.positionElems.get(row.lastChild)!;
-//     const lastDescendantElem = sh.positionElems.get(row.lastDescendant)!;
-
-//     const yMe = meElem.offsetTop + meElem.offsetHeight - TREE_LINE_Y_OFFSET_MIN;
-//     const yLastChild = lastChildElem.offsetTop + NODE_HEIGHT / 2;
-//     const yLastDescendant = lastDescendantElem.offsetTop + NODE_HEIGHT / 2;
-//     const xOffset = layerToPadLeft(layer) + ARROW_WIDTH / 2 - DRAG_WIDTH / 2;
-
-//     dragRef.current.style.top = `${yMe}px`;
-//     dragRef.current.style.left = `${xOffset}px`;
-//     dragRef.current.style.width = `${DRAG_WIDTH}px`;
-//     dragRef.current.style.height = `${
-//       yLastDescendant - yMe + TREE_LINE_Y_OFFSET_MAX
-//     }px`;
-
-//     lineRef.current.style.height = `${yLastChild - yMe}px`;
-//   });
-
-//   return [dragRef, lineRef];
-// }
 
 export default function NodeCaret() {
   const caret = useAppSelector((state) => state.caret);
